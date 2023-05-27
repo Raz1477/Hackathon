@@ -133,4 +133,3 @@ labelStats.pack(
     pady = 30
 )
 window.mainloop()
-
