@@ -98,7 +98,7 @@ button = tk.Button(
 )
 
 # Adding the Cutlass
-image = Image.open("cutlass.png")
+image = Image.open("Images/cutlass.png")
 image = image.resize((110, 242), Image.ANTIALIAS)
 image = image.rotate(-15)
 test = ImageTk.PhotoImage(image)
@@ -107,7 +107,7 @@ labelPic.image = test
 labelPic.place(x = 460, y = 230)
 
 # Adding the second Cutlass
-image = Image.open("cutlassflipped.png")
+image = Image.open("Images/cutlassflipped.png")
 image = image.resize((110, 242), Image.ANTIALIAS)
 image = image.rotate(15)
 test = ImageTk.PhotoImage(image)
