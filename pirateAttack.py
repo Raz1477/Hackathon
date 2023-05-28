@@ -1,6 +1,6 @@
 import tkinter as tk 
-from PIL import Image, ImageTk
 import pirateProbability
+from PIL import Image, ImageTk
 
 # Basic window setup 
 window = tk.Tk()
