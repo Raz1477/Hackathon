@@ -31,7 +31,7 @@ def getCords():
     )
 
     if latitude > 56 or latitude < -34 or longitude > 160 or longitude < - 164:
-        labelStats.configure(text = "Not supported\n -164 < long. < 160 | -34 < lat. < 56")
+        labelStats.configure(text = "Not supported\n -34 < lat. < 56 | -164 < long. < 160")
     else:
         prob = pirateProbability.prob(latitude, longitude)
         labelStats.configure(text = f"The probability of being attacked \n at ({round(latitude, 3)}, {round(longitude, 3)}) is {str(round(prob[2], 3))}%")
