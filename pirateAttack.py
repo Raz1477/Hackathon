@@ -21,7 +21,7 @@ font_tuple = ("Javanese Text", 20, "bold")
 # Stats Label Declaration
 labelStats = tk.Label()
 
-# Plots coordinate on a map and saves plot in Plots folder
+# Plots coordinate on a map with labeled point
 def plotMap(longitude, latitude, prob):
     plt.figure(figsize =(16, 8))
     ax = plt.axes(projection = ccrs.PlateCarree())
