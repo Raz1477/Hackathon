@@ -22,7 +22,7 @@ font_tuple = ("Javanese Text", 20, "bold")
 labelStats = tk.Label()
 
 # Plots coordinate on a map and saves plot in Plots folder
-def plotMap(longitude, latitude):
+def plotMap(longitude, latitude, prob):
     plt.figure(figsize =(16, 8))
     ax = plt.axes(projection = ccrs.PlateCarree())
     ax.add_feature(cfeature.COASTLINE)
@@ -51,8 +51,8 @@ def plotMap(longitude, latitude):
     )
     plt.text(
         latitude + 17, 
-        longitude - 12,
-        'Latitude: ' + str(latitude) + '°\nLongitude: ' + str(longitude) + '°',
+        longitude - 17,
+        'Latitude: ' + str(latitude) + '°\nLongitude: ' + str(longitude) + '°\nProbability: ' + str(round(prob[2], 3)) + '%',
         horizontalalignment = 'right',
         transform = ccrs.PlateCarree(),
         color = "red",
@@ -83,7 +83,7 @@ def getCords():
         else:
             prob = pirateProbability.prob(latitude, longitude)
             labelStats.configure(text = f"The probability of being attacked \n at ({round(latitude, 3)}, {round(longitude, 3)}) is {str(round(prob[2], 3))}%")
-            plotMap(longitude, latitude)
+            plotMap(longitude, latitude, prob)
     except Exception as error:
         print(error)
         labelStats.configure(text = "Please enter a number!")
