@@ -5,8 +5,6 @@ from PIL import Image, ImageTk
 import cartopy.crs as ccrs
 import cartopy.feature as cfeature
 import matplotlib.pyplot as plt
-import matplotlib.ticker as mtck
-
 
 # Basic window setup 
 window = tk.Tk()
@@ -84,7 +82,7 @@ def getCords():
             prob = pirateProbability.prob(latitude, longitude)
             labelStats.configure(text = f"The probability of being attacked \n at ({round(latitude, 3)}, {round(longitude, 3)}) is {str(round(prob[2], 3))}%")
             plotMap(longitude, latitude, prob)
-    except Exception as error:
+    except ValueError as error:
         print(error)
         labelStats.configure(text = "Please enter a number!")
 
