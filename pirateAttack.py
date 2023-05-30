@@ -21,6 +21,7 @@ font_tuple = ("Javanese Text", 20, "bold")
 # Stats Label Declaration
 labelStats = tk.Label()
 
+# Plots coordinate on a map and saves plot in Plots folder
 def plotMap(longitude, latitude):
     plt.figure(figsize =(16, 8))
     ax = plt.axes(projection = ccrs.PlateCarree())
@@ -49,6 +50,7 @@ def plotMap(longitude, latitude):
         markerfacecolor = "red"
     )
     plt.show()
+    plt.savefig('Plots/Long' + str(round(longitude)) + 'Lat' + str(round(latitude)) + 'plot.jpg')
 
 # Function for grabbing user entry
 def getCords():
