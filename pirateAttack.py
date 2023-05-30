@@ -2,6 +2,12 @@ import tkinter as tk
 import pirateProbability
 from PIL import Image, ImageTk
 
+import cartopy.crs as ccrs
+import cartopy.feature as cfeature
+import matplotlib.pyplot as plt
+import matplotlib.ticker as mtck
+
+
 # Basic window setup 
 window = tk.Tk()
 window.title("Pirate Probability")
@@ -14,6 +20,35 @@ font_tuple = ("Javanese Text", 20, "bold")
 
 # Stats Label Declaration
 labelStats = tk.Label()
+
+def plotMap(longitude, latitude):
+    plt.figure(figsize =(16, 8))
+    ax = plt.axes(projection = ccrs.PlateCarree())
+    ax.add_feature(cfeature.COASTLINE)
+    ax.add_feature(cfeature.OCEAN, facecolor='#CCFEFF')
+    ax.add_feature(cfeature.LAKES, facecolor='#CCFEFF')
+    ax.add_feature(cfeature.RIVERS, edgecolor='#CCFEFF')
+    ax.add_feature(cfeature.LAND, facecolor='#FFE9B5')
+    gl = ax.gridlines(
+        crs=ccrs.PlateCarree(), 
+        draw_labels=True, 
+        linewidth=1, 
+        color='gray', 
+        alpha=0.5, 
+        linestyle='--'
+    )
+    gl.top_labels = False
+    gl.left_labels = False
+    ax.set_extent([-180, 180, -90, 90])
+    plt.plot(
+        latitude, 
+        longitude, 
+        marker = "o", 
+        markersize = 10, 
+        markeredgecolor = "black", 
+        markerfacecolor = "red"
+    )
+    plt.show()
 
 # Function for grabbing user entry
 def getCords():
@@ -35,12 +70,13 @@ def getCords():
         else:
             prob = pirateProbability.prob(latitude, longitude)
             labelStats.configure(text = f"The probability of being attacked \n at ({round(latitude, 3)}, {round(longitude, 3)}) is {str(round(prob[2], 3))}%")
-    except:
+            plotMap(longitude, latitude)
+    except Exception as error:
+        print(error)
         labelStats.configure(text = "Please enter a number!")
 
     longitudeEntry.delete(first = 0, last = 100)
     latitudeEntry.delete(first = 0, last = 100)
-    
 
 # Main title Label
 label = tk.Label(
