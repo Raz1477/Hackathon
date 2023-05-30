@@ -50,12 +50,16 @@ def plotMap(longitude, latitude):
         markerfacecolor = "red"
     )
     plt.text(
-        latitude, 
-        longitude - 3,
-        'Latitude: ' + str(latitude) + '\nLongitude: ' + str(longitude),
+        latitude + 17, 
+        longitude - 12,
+        'Latitude: ' + str(latitude) + '°\nLongitude: ' + str(longitude) + '°',
         horizontalalignment = 'right',
         transform = ccrs.PlateCarree(),
-        color = "red"
+        color = "red",
+        font = "Arial",
+        fontweight = "bold",
+        backgroundcolor = 'white',
+        alpha = .5,
     )
     plt.show()
 
@@ -150,7 +154,7 @@ button = tk.Button(
 
 # Adding the Cutlass
 image = Image.open("Images/cutlass.png")
-image = image.resize((110, 242), Image.ANTIALIAS)
+image = image.resize((110, 242), Image.Resampling.LANCZOS)
 image = image.rotate(-15)
 test = ImageTk.PhotoImage(image)
 labelPic = tk.Label(image = test, bg = "beige")
@@ -159,7 +163,7 @@ labelPic.place(x = 460, y = 230)
 
 # Adding the second Cutlass
 image = Image.open("Images/cutlassflipped.png")
-image = image.resize((110, 242), Image.ANTIALIAS)
+image = image.resize((110, 242), Image.Resampling.LANCZOS)
 image = image.rotate(15)
 test = ImageTk.PhotoImage(image)
 labelPic = tk.Label(image = test, bg = "beige")
