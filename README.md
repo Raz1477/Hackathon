@@ -1,2 +1,2 @@
-Enter longitude and latitude coordinates in order to see the chance of being attacked by pirates.
+Enter longitude and latitude coordinates in order to see the chance of being attacked by pirates and the location that your coordinates are on the map.
 *Note: Only longitudes and latitudes within the range provided by the dataset used can be inputted.
