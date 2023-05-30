@@ -49,8 +49,15 @@ def plotMap(longitude, latitude):
         markeredgecolor = "black", 
         markerfacecolor = "red"
     )
+    plt.text(
+        latitude, 
+        longitude - 3,
+        'Latitude: ' + str(latitude) + '\nLongitude: ' + str(longitude),
+        horizontalalignment = 'right',
+        transform = ccrs.PlateCarree(),
+        color = "red"
+    )
     plt.show()
-    plt.savefig('Plots/Long' + str(round(longitude)) + 'Lat' + str(round(latitude)) + 'plot.jpg')
 
 # Function for grabbing user entry
 def getCords():
