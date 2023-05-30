@@ -17,24 +17,30 @@ labelStats = tk.Label()
 
 # Function for grabbing user entry
 def getCords():
-    longitude = float(longitudeEntry.get())
-    latitude = float(latitudeEntry.get())
-    longitudeEntry.delete(first = 0, last = 100)
-    latitudeEntry.delete(first = 0, last = 100)
 
     labelStats.configure(
-        fg = "brown",
-        bg = "beige",
-        width = "40",
-        height = "3",
-        font = font_tuple
+            fg = "brown",
+            bg = "beige",
+            width = "40",
+            height = "3",
+            font = font_tuple
     )
 
-    if latitude > 56 or latitude < -34 or longitude > 160 or longitude < - 164:
-        labelStats.configure(text = "Not supported\n -34 < lat. < 56 | -164 < long. < 160")
-    else:
-        prob = pirateProbability.prob(latitude, longitude)
-        labelStats.configure(text = f"The probability of being attacked \n at ({round(latitude, 3)}, {round(longitude, 3)}) is {str(round(prob[2], 3))}%")
+    try:
+        longitude = float(longitudeEntry.get())
+        latitude = float(latitudeEntry.get())
+
+        if latitude > 56 or latitude < -34 or longitude > 160 or longitude < - 164:
+            labelStats.configure(text = "Not supported\n -34 < lat. < 56 | -164 < long. < 160")
+        else:
+            prob = pirateProbability.prob(latitude, longitude)
+            labelStats.configure(text = f"The probability of being attacked \n at ({round(latitude, 3)}, {round(longitude, 3)}) is {str(round(prob[2], 3))}%")
+    except:
+        labelStats.configure(text = "Please enter a number!")
+
+    longitudeEntry.delete(first = 0, last = 100)
+    latitudeEntry.delete(first = 0, last = 100)
+    
 
 # Main title Label
 label = tk.Label(
