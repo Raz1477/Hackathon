@@ -1,18 +1,18 @@
 <h1> Pirate Attack Probability <h1>
 
-**To be able to run this program several libraries need to be installed. Install anaconda and download following libraries using below command.**
+__To be able to run this program several libraries need to be installed. Install anaconda and download following libraries using below command.__
 ```
 $ conda install <packagename>
 ```
 
-**Libraries**
+__Libraries__
 - Pandas
 - MatPlotLib
 - Cartopy
 - Tkinter
 - Pillow
 
-**How To Use**
+__How To Use__
 
 Enter longitude and latitude coordinates in order to see the chance of being attacked by pirates and the location that your coordinates are on the map.
 
