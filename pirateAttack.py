@@ -40,16 +40,16 @@ def plotMap(longitude, latitude, prob):
     gl.left_labels = False
     ax.set_extent([-180, 180, -90, 90])
     plt.plot(
-        latitude, 
         longitude, 
+        latitude, 
         marker = "o", 
         markersize = 10, 
         markeredgecolor = "black", 
         markerfacecolor = "red"
     )
     plt.text(
-        latitude + 17, 
-        longitude - 17,
+        longitude + 17, 
+        latitude - 17,
         'Latitude: ' + str(latitude) + '°\nLongitude: ' + str(longitude) + '°\nProbability: ' + str(round(prob[2], 3)) + '%',
         horizontalalignment = 'right',
         transform = ccrs.PlateCarree(),
