@@ -4,7 +4,7 @@
 import pandas as pd
 
 # reading the data into a dictionary
-data = pd.read_csv("pirate_attacks.csv")
+data = pd.read_csv("Assets/pirate_attacks.csv")
 
 # sorting the longitudes into a separate dictionary
 longDict = data['longitude'].value_counts().to_dict()
