@@ -97,4 +97,3 @@ def probLat(lat):
 # print("prob in the caribbean sea : " + str(round(prob(10.227021951024312, -78.69188587875308)[2], 3)) + "%")
 # print("prob near pakistan : " + str(round(prob(25.58394316888932, 66.53499889285015)[2], 3)) + "%")
 # print("prob in the red sea : " + str(round(prob(29.785892, 48.867798)[2], 3)) + "%")
-
