@@ -1,4 +1,4 @@
-<h1> Pirate Attack Probability <h1>
+<h1> Pirate Attack Probability </h1>
 
 __To be able to run this program several libraries need to be installed. Install anaconda and download following libraries using below command.__
 ```
